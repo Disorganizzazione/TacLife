@@ -1,10 +1,12 @@
 <?php
- if(isset($_POST['utente']){
+ if(isset($_POST['utente'])){
     require_once('db_conn.php');
 
-    $expupdate = "UPDATE utenti SET exp = exp + 5 WHERE utente = ?"
-    $checkexp = "SELECT exp, privilegi FROM utenti WHERE utente = ?"
-    $privilegi = "UPDATE utenti SET privilegi = true, exp = exp + 5 WHERE utente = ?"
+    $expupdate = "UPDATE utenti SET exp = exp + 5 WHERE utente = ?";
+
+    $checkexp = "SELECT exp, privilegi FROM utenti WHERE utente = ?";
+
+    $privilegi = "UPDATE utenti SET privilegi = true, exp = exp + 5 WHERE utente = ?";
     
     if ($pst=$con->prepare($checkexp)){
 
@@ -25,7 +27,7 @@
                         $pst->bind_param("s",$utente);// creazione query
                         $pst->execute();//esecuzione query
                     }else{
-                        echo "expupdate error"
+                        echo "expupdate error";
 
                     }
                         $pst-> bind_result($exp,$privilegi);

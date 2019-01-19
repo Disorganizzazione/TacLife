@@ -1,8 +1,8 @@
 <?php
-    if(isset($_POST['utente']){
+    if(isset($_POST['utente'])){
         require_once('db_conn.php');
         
-        $sql = "SELECT utente, passwd, privilegi FROM utenti WHERE  utente=?"
+        $sql = "SELECT utente, passwd, privilegi FROM utenti WHERE  utente=?";
         
         if ($pst=$con->prepare($sql)){
 
@@ -14,18 +14,18 @@
 
             $pst->execute();//esecuzione query
 
-            $pst-> bind_result($utente, $passw, $privilegi)
+            $pst-> bind_result($utente, $passw, $privilegi);
             
             if($pst->affected_rows == 1){
-                $result->utente = $utente
-                $result->passwd = $passw 
-                $result->privilegi = $privilegi
+                $result->utente = $utente;
+                $result->passwd = $passw ;
+                $result->privilegi = $privilegi;
             
                 if($passwd == $passw){
-                    echo json_encode($result)
+                    echo json_encode($result);
                 }               
                 else{
-                    echo "Error: 0"
+                    echo "Error: 0";
                 }
 
             }else{
