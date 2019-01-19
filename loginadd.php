@@ -2,7 +2,7 @@
     if(isset($_POST['utente']))}{
         require_once("db_conn.php");// connessione al database
 
-        $query = "insert into 'utenti'('utente', 'passw', 'dataN') values (?,?,?)";
+        $query = "INSERT INTO utenti(utente, passw, dataN) VALUES (?,?,?)";
 
 
         if ($pst=$con->prepare($sql)){
@@ -16,21 +16,21 @@
             $pst->execute();//esecuzione query
 
             if($pst->affected_rows == 1){
-                echo 1 ;
+                echo $query ; 
                 
 
             }else{
-                echo "error: " . mysqli_error($con);                
+                echo "Error: 1" . mysqli_error($con);                
             }
 
             $pst->close();//chiude lo statement
             mysqli_close($con);//chiude la connessione
             
         }else{
-            echo "error: " . mysqli_error($con);                    
+            echo "error: 2" . mysqli_error($con);                    
         }
     }else{
-        echo "error: " . mysqli_error($con);                      
+        echo "error: 3" . mysqli_error($con);                      
     }
 
 ?>
