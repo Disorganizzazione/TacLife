@@ -2,18 +2,17 @@
     if(isset($_POST['utente'])){
         require_once("db_conn.php");
         
+        $uten = $_POST['utente'];
+        $passwcheck = $_POST['passw'];
+
         $sql = "SELECT utente, passw, privilegi FROM utenti WHERE utente = ?";
         
         if ($pst=$con->prepare($sql)){
 
-            $uten = $_POST['utente'];
-            $passwcheck = $_POST['passw'];
-            
-
-            $pst->bind_param("s",$utente);// creazione query
+            $pst->bind_param("s",$uten);// creazione query
             $pst->execute();//esecuzione query
             
-            $res = $pst-> get_result();
+            $res = $pst->get_result();
             //$result = array(); 
             while($tmp = $res->fetch_assoc()){
             //if($pst->affected_rows != 1){
@@ -21,7 +20,7 @@
                 //$res["passwd"]= $passwd ;
                 //$res["privilegi"]= $privilegi;
             
-                if($passwd == $passw){
+                if($res['passw'] == $passwcheck){
                    // echo $utente ." - ". $passwd ." - ". $privilegi ."<br>";
                     
                     echo $res;
