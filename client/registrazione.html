@@ -3,13 +3,39 @@
 <html>
 <head>
     <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+    <style>
+    	body{
+    		background-color: #fffdd0;
+    	}
+    	div {
+    		font-family: 'Righteous', cursive;
+    		color:#4d6d2a;
+    		font-size:30px;
+    		text-shadow: 1.5px 1.5px #456225;
+    	}
+    	.title {
+    		font-family: 'Hammersmith One', sans-serif;
+    		font-size: 70px;
+    		color:#ff8829;
+    		text-shadow: 3px 3px #ffb366;
+    	}
+    	input[type=text], input[type=password], input[type=date]{
+    		background-color: #cccaa6;
+    		font-size: 17px;
+    	}
+	</style>
 </head>
 <body>
-    <form action="http://taclife.altervista.org/loginadd.php" method="post">
-        <input type="text" name="utente" placeholder="Inserisci lo username" /><br>
-        <input type="password" name="passw" placeholder="Inserisci la password" /><br>
-        <input type="date" name="dataN" placeholder="inserisci data di nascita"/><br>
-        <input type="submit" value="Registrati" />
-    </form>
+	<div style="margin-left: auto; margin-right: auto; text-align:center; width:411px;">
+		<span class="title">TacLife</span><br><br>
+    	<form action="http://taclife.altervista.org/loginadd.php" method="post">
+        	&nbsp;&nbsp;&nbsp;Username:&nbsp;<input type="text" name="utente" placeholder="Inserisci lo username" /><br><br>
+        	&nbsp;&nbsp;&nbsp;Password:&nbsp;<input type="password" name="passw" placeholder="Inserisci la password" /><br><br>
+        	Data di nascita: <input type="date" name="dataN" placeholder="inserisci data di nascita"/><br><br>
+        	<input type="submit" value="Registrati" style="float:right;"/>
+	    </form>
+	</div>
 </body>
 </html>
