@@ -13,17 +13,11 @@
             $pst->execute();//esecuzione query
             
             $res = $pst->get_result();
-            //$result = array(); 
+
             while($tmp = $res->fetch_assoc()){
-            //if($pst->affected_rows != 1){
-                //$res["utente"] = $utente;
-                //$res["passwd"]= $passwd ;
-                //$res["privilegi"]= $privilegi;
-            
-                if($res['passw'] == $passwcheck){
-                   // echo $utente ." - ". $passwd ." - ". $privilegi ."<br>";
-                    
-                    echo $res;
+                
+                if($tmp['passw'] == $passwcheck){
+                    echo json_encode($tmp);
                 }               
                 else{
                     echo "password errata";
