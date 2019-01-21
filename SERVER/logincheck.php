@@ -1,35 +1,35 @@
 <?php
     if(isset($_POST['utente'])){
-        require_once('db_conn.php');
+        require_once("db_conn.php");
         
-        $sql = "SELECT utente, passwd, privilegi FROM utenti WHERE  utente=?";
+        $sql = "SELECT utente, passw, privilegi FROM utenti WHERE  utente = ?";
         
         if ($pst=$con->prepare($sql)){
 
-            $utente-> $_POST['utente'];
-            $passwd-> $_POST['passw'];//preparazione dati
+            $utente = $_POST['utente'];
+            $passwcheck = $_POST['passw'];
             
 
             $pst->bind_param("s",$utente);// creazione query
-
             $pst->execute();//esecuzione query
-
-            $pst-> bind_result($utente, $passw, $privilegi);
             
-            if($pst->affected_rows == 1){
-                $result->utente = $utente;
-                $result->passwd = $passw ;
+			$pst-> bind_result($utent, $passwd, $privilegi);
+            
+            if($pst->affected_rows != 1){
+                
+                $result->utente = $utent;
+                $result->passw = $passwd ;
                 $result->privilegi = $privilegi;
             
                 if($passwd == $passw){
-                    echo json_encode($result);
+                    echo json_encode($utent,$passwd,$privilegi);
                 }               
                 else{
-                    echo "Error: 0";
+                    echo "password errata";
                 }
 
             }else{
-                echo "Error: 1" . mysqli_error($con);                
+                echo "Error: 1 2 3" . mysqli_error($con);                
             }
 
             $pst->close();//chiude lo statement

@@ -16,7 +16,7 @@
             $pst->execute();//esecuzione query
 
             if($pst->affected_rows == 1){
-                echo $query ; 
+                echo "evviva" ; 
                 
 
             }else{
