@@ -14,11 +14,10 @@
         $pst->bind_param("s",$utente);// creazione query
         $pst->execute();//esecuzione query
 
-        $pst-> bind_result($exp,$pr);
-
-        if($pst->affected_rows == 1){
-            if ($pr==TRUE){
-                if($exp +5 < 100){
+        $res = $pst-> get_result();
+        while($tmp= $res->fetch() ){
+            if ($tmp["privilegi"]==1){
+                if( tmp["exp"] + 5 < 100){
                     if ($pst=$con->prepare($expupdate)){
 
                         $utente-> $_POST['utente'];
@@ -44,8 +43,6 @@
                 }    
             }
     
-        }else{
-            echo "Error: 1" . mysqli_error($con);                
         }
 
         $pst->close();//chiude lo statement

@@ -2,6 +2,10 @@
     if(isset($_POST['utente'])){
         require_once("db_conn.php");// connessione al database
 
+        $utente-> $_POST['utente'];
+        $passw-> $_POST['passw'];
+        $dataN-> $_POST['dataN'];//preparaziione dati
+
         $query = "INSERT INTO utenti(utente, passw, dataN) VALUES (?,?,?)";
 
 
