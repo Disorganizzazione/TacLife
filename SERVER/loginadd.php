@@ -6,7 +6,7 @@
         $passw-> $_POST['passw'];
         $dataN-> $_POST['dataN'];//preparaziione dati
 
-        $query = "INSERT INTO utenti(utente, passw, dataN) VALUES (?,?,?)";
+        $query = "INSERT INTO utenti(utente, passw, dataN) VALUES (?,?,?)";//query da eseguire
 
 
         if ($pst=$con->prepare($sql)){
